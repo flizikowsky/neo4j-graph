@@ -1,0 +1,141 @@
+MATCH (n)
+DETACH DELETE (n);
+
+//  5 artists, 20 users, 25 songs (5 for each user), albums (1 or 2 for each artist), genre (3 genres), Record Label (2), collaboration nodes between some artists songs
+
+CREATE (Dawid:Artist {name:'Dawid Podsiadlo', dateOfBirth: date('1993-05-23'), originCountry:'Poland'}),
+       (Adele:Artist {name:'Adele', dateOfBirth: date('1988-05-05'), originCountry:'United Kingdom'}),
+       (Drake:Artist {name:'Drake', dateOfBirth: date('1986-10-24'), originCountry:'Canada'}),
+       (TheWeeknd:Artist {name:'The Weeknd', dateOfBirth: date('1990-02-16'), originCountry:'Canada'}),
+       (Rosalia:Artist {name:'Rosalía', dateOfBirth: date('1992-09-25'), originCountry:'Spain'});
+
+CREATE (Kuba:User {name:'Kuba Flizikowski', dateOfBirth: date('2004-12-29'), joinDate: date('2019-02-12'), countryOrigin: 'Poland', subscriptionType: 'Premium'}),
+       (Alice:User {name:'Alice Johnson', dateOfBirth: date('1995-03-14'), joinDate: date('2020-06-01'), countryOrigin: 'United Kingdom', subscriptionType: 'Free'}),
+       (Marco:User {name:'Marco Rossi', dateOfBirth: date('1990-07-22'), joinDate: date('2018-09-15'), countryOrigin: 'Italy', subscriptionType: 'Premium'}),
+       (Emma:User {name:'Emma Dubois', dateOfBirth: date('1998-11-09'), joinDate: date('2021-01-30'), countryOrigin: 'France', subscriptionType: 'Free'}),
+       (Liam:User {name:'Liam O’Connor', dateOfBirth: date('1992-05-05'), joinDate: date('2022-03-19'), countryOrigin: 'Ireland', subscriptionType: 'Premium'}),
+       (Sofia:User {name:'Sofia Hernandez', dateOfBirth: date('1999-08-16'), joinDate: date('2023-02-25'), countryOrigin: 'Spain', subscriptionType: 'Premium'}),
+       (Lucas:User {name:'Lucas Müller', dateOfBirth: date('1988-10-11'), joinDate: date('2017-07-08'), countryOrigin: 'Germany', subscriptionType: 'Free'}),
+       (Mia:User {name:'Mia Novak', dateOfBirth: date('1997-04-19'), joinDate: date('2021-11-03'), countryOrigin: 'Czech Republic', subscriptionType: 'Premium'}),
+       (Noah:User {name:'Noah Andersen', dateOfBirth: date('1993-09-28'), joinDate: date('2020-02-20'), countryOrigin: 'Denmark', subscriptionType: 'Free'}),
+       (Olivia:User {name:'Olivia Smith', dateOfBirth: date('2001-01-10'), joinDate: date('2022-05-15'), countryOrigin: 'United States', subscriptionType: 'Premium'}),
+       (Hiroshi:User {name:'Hiroshi Tanaka', dateOfBirth: date('1989-06-03'), joinDate: date('2016-09-22'), countryOrigin: 'Japan', subscriptionType: 'Premium'}),
+       (Isabella:User {name:'Isabella Costa', dateOfBirth: date('1996-12-02'), joinDate: date('2020-08-10'), countryOrigin: 'Brazil', subscriptionType: 'Free'}),
+       (Ethan:User {name:'Ethan Williams', dateOfBirth: date('1994-02-17'), joinDate: date('2018-03-14'), countryOrigin: 'Australia', subscriptionType: 'Premium'}),
+       (Nina:User {name:'Klaudia Golubowska', dateOfBirth: date('2004-07-07'), joinDate: date('2021-09-29'), countryOrigin: 'Poland', subscriptionType: 'Premium'}),
+       (Carlos:User {name:'Carlos Gomez', dateOfBirth: date('1987-11-23'), joinDate: date('2017-12-19'), countryOrigin: 'Mexico', subscriptionType: 'Premium'}),
+       (Sara:User {name:'Sara Lindberg', dateOfBirth: date('1995-08-04'), joinDate: date('2019-04-25'), countryOrigin: 'Sweden', subscriptionType: 'Free'}),
+       (Jonas:User {name:'Jonas Berg', dateOfBirth: date('1991-03-01'), joinDate: date('2018-06-30'), countryOrigin: 'Norway', subscriptionType: 'Premium'}),
+       (Leila:User {name:'Leila Haddad', dateOfBirth: date('1997-10-12'), joinDate: date('2021-07-12'), countryOrigin: 'Morocco', subscriptionType: 'Free'}),
+       (Andrei:User {name:'Andrei Popescu', dateOfBirth: date('1993-05-30'), joinDate: date('2020-11-22'), countryOrigin: 'Romania', subscriptionType: 'Premium'}),
+       (Anna:User {name:'Anna Petrov', dateOfBirth: date('1998-02-09'), joinDate: date('2023-01-05'), countryOrigin: 'Russia', subscriptionType: 'Free'});
+
+// Dawid Podsiadło
+CREATE (s1:Song {name:'Małomiasteczkowy', releaseDate: date('2018-10-19'), genreType:'Pop', duration: 226, mood:['reflective','nostalgic']}),
+       (s2:Song {name:'Pastempomat', releaseDate: date('2015-11-06'), genreType:'Pop', duration: 210, mood:['energetic','uplifting']}),
+       (s3:Song {name:'Nie Ma Fal', releaseDate: date('2018-09-14'), genreType:'Indie Pop', duration: 204, mood:['catchy','optimistic']});
+
+// Adele
+CREATE (s4:Song {name:'Hello', releaseDate: date('2015-10-23'), genreType:'Soul', duration: 295, mood:['emotional','introspective']}),
+       (s5:Song {name:'Rolling in the Deep', releaseDate: date('2010-11-29'), genreType:'Pop Rock', duration: 228, mood:['powerful','confident']}),
+       (s6:Song {name:'Someone Like You', releaseDate: date('2011-01-24'), genreType:'Soul Pop', duration: 224, mood:['melancholic','vulnerable']});
+
+// Drake
+CREATE (s7:Song {name:'God’s Plan', releaseDate: date('2018-01-19'), genreType:'Hip Hop', duration: 198, mood:['motivational','confident']}),
+       (s8:Song {name:'Hotline Bling', releaseDate: date('2015-07-31'), genreType:'R&B', duration: 267, mood:['chill','romantic']}),
+       (s9:Song {name:'Controlla', releaseDate: date('2016-04-05'), genreType:'Dancehall', duration: 173, mood:['danceable','smooth']});
+
+// The Weeknd
+CREATE (s10:Song {name:'Blinding Lights', releaseDate: date('2019-11-29'), genreType:'Synthpop', duration: 200, mood:['energetic','nostalgic']}),
+       (s11:Song {name:'Save Your Tears', releaseDate: date('2020-08-09'), genreType:'Pop', duration: 215, mood:['melancholic','catchy']}),
+       (s12:Song {name:'Party Monster', releaseDate: date('2016-1-25'), genreType:'Electropop', duration: 230, mood:['dark','confident']});
+
+// Rosalía
+CREATE (s13:Song {name:'Malamente', releaseDate: date('2018-05-30'), genreType:'Flamenco Pop', duration: 161, mood:['bold','rhythmic']}),
+       (s14:Song {name:'Con Altura', releaseDate: date('2019-03-28'), genreType:'Reggaeton', duration: 162, mood:['playful','danceable']}),
+       (s15:Song {name:'Saoko', releaseDate: date('2022-03-18'), genreType:'Latin Pop', duration: 160, mood:['fun','confident']});
+
+// Dawid Podsiadło albums
+CREATE (album1:Album {name:'Małomiasteczkowy'}),
+       (album2:Album {name:'Comfort and Happiness'});
+
+// Adele albums
+CREATE (album3:Album {name:'25'}),
+       (album4:Album {name:'21'});
+
+// Drake albums
+CREATE (album6:Album {name:'Scorpion'}),
+       (album7:Album {name:'Views'});
+
+// The Weeknd albums
+CREATE (album9:Album {name:'After Hours'}),
+       (album10:Album {name:'Starboy'});
+
+// Rosalía albums
+CREATE (album12:Album {name:'El Mal Querer'}),
+       (album13:Album {name:'Motomami'});
+
+//match group for artists and albums
+MATCH (artist:Artist), (album:Album)
+WHERE (artist.name = 'Dawid Podsiadlo' AND album.name = 'Małomiasteczkowy')
+   OR (artist.name = 'Dawid Podsiadlo' AND album.name = 'Comfort and Happiness')
+   OR (artist.name = 'Adele' AND album.name = '25')
+   OR (artist.name = 'Adele' AND album.name = '21')
+   OR (artist.name = 'Drake' AND album.name = 'Scorpion')
+   OR (artist.name = 'Drake' AND album.name = 'Views')
+   OR (artist.name = 'The Weeknd' AND album.name = 'After Hours')
+   OR (artist.name = 'The Weeknd' AND album.name = 'Starboy')
+   OR (artist.name = 'Rosalía' AND album.name = 'El Mal Querer')
+   OR (artist.name = 'Rosalía' AND album.name = 'Motomami')
+RETURN artist, album;
+
+//relationships for artists->albums
+MATCH (artist:Artist), (album:Album)
+WHERE (artist.name = 'Dawid Podsiadlo' AND album.name IN ['Małomiasteczkowy','Comfort and Happiness'])
+   OR (artist.name = 'Adele' AND album.name IN ['25','21'])
+   OR (artist.name = 'Drake' AND album.name IN ['Scorpion','Views'])
+   OR (artist.name = 'The Weeknd' AND album.name IN ['After Hours','Starboy'])
+   OR (artist.name = 'Rosalía' AND album.name IN ['El Mal Querer','Motomami'])
+CREATE (artist)-[:RELEASED {releaseDate: coalesce(album.releaseDate, date())}]->(album);
+
+
+//relationships for songs->albums
+MATCH (song:Song), (album:Album)
+WHERE (song.name IN ['Małomiasteczkowy','Nie Ma Fal'] AND album.name = 'Małomiasteczkowy')
+   OR (song.name = 'Pastempomat' AND album.name = 'Comfort and Happiness')
+   OR (song.name IN ['Hello'] AND album.name = '25')
+   OR (song.name IN ['Rolling in the Deep','Someone Like You'] AND album.name = '21')
+   OR (song.name IN ['God’s Plan'] AND album.name = 'Scorpion')
+   OR (song.name IN ['Hotline Bling','Controlla'] AND album.name = 'Views')
+   OR (song.name IN ['Blinding Lights','Save Your Tears'] AND album.name = 'After Hours')
+   OR (song.name = 'Party Monster' AND album.name = 'Starboy')
+   OR (song.name = 'Malamente' AND album.name = 'El Mal Querer')
+   OR (song.name IN ['Con Altura','Saoko'] AND album.name = 'Motomami')
+CREATE (song)-[:ON_ALBUM]->(album);
+
+
+MATCH (u:User)
+WITH u
+UNWIND range(1,2) AS sIndex
+WITH u, sIndex,
+     datetime() - duration({days: toInteger(rand()*365), hours: toInteger(rand()*24), minutes: toInteger(rand()*60)}) AS randomStart,
+     duration({minutes: toInteger(rand()*90) + 10}) AS randomDuration // session length 10–100 min
+CREATE (s:Session {
+    sessionId: u.name + '_S' + sIndex,
+    startTime: randomStart,
+    endTime: randomStart + randomDuration,
+    device: CASE sIndex % 2 WHEN 1 THEN 'mobile' ELSE 'web' END,
+    location: u.countryOrigin
+})
+CREATE (u)-[:HAS_SESSION]->(s)
+RETURN u, s;
+
+MATCH (session:Session), (song:Song)
+WITH session, collect(song) AS songs
+WITH session, songs[toInteger(rand()*size(songs))] AS song1,
+            songs[toInteger(rand()*size(songs))] AS song2,
+            songs[toInteger(rand()*size(songs))] AS song3
+CREATE (session)-[:STREAMED {order:1, play_count: 1, last_played: datetime()}]->(song1)
+CREATE (session)-[:STREAMED {order:2, play_count: 1, last_played: datetime()}]->(song2)
+CREATE (session)-[:STREAMED {order:3, play_count: 1, last_played: datetime()}]->(song3);
+
