@@ -33,7 +33,7 @@ ORDER BY s.startTime, session, r.order;
 
 MATCH (u:User)-[:HAS_SESSION]->(:Session)-[st:STREAMED]->(song:Song)
 MATCH (song)-[:ON_ALBUM]->(:Album)<-[:RELEASED]-(ar:Artist)
-WHERE st.last_played >= datetime() - duration('P30D')
+WHERE st.last_played >= datetime() - duration({days:30})
 RETURN ar.name AS artist,
 count(*) AS totalStreams,
 count(DISTINCT u) AS uniqueListeners
@@ -46,8 +46,7 @@ ORDER BY totalStreams DESC, uniqueListeners DESC;
 MATCH (u:User {name: 'Kuba Flizikowski'})-[:IS_FOLLOWING*1..2]->(friend:User)
 WHERE u <> friend
 MATCH (friend)-[:HAS_SESSION]->(:Session)-[r:STREAMED]->(song:Song)
-WHERE r.last_played >= datetime() - duration({days:30})
-  AND NOT (u)-[:HAS_SESSION]->(:Session)-[:STREAMED]->(song)
+WHERE r.last_played >= datetime() - duration({days:30}) AND NOT (u)-[:HAS_SESSION]->(:Session)-[:STREAMED]->(song)
 WITH song, count(r) AS friendStreamCount
 ORDER BY friendStreamCount DESC
 LIMIT 2

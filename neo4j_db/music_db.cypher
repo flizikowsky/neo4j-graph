@@ -7,7 +7,7 @@ CREATE (Dawid:Artist {name:'Dawid Podsiadlo', dateOfBirth: date('1993-05-23'), o
        (Adele:Artist {name:'Adele', dateOfBirth: date('1988-05-05'), originCountry:'United Kingdom'}),
        (Drake:Artist {name:'Drake', dateOfBirth: date('1986-10-24'), originCountry:'Canada'}),
        (TheWeeknd:Artist {name:'The Weeknd', dateOfBirth: date('1990-02-16'), originCountry:'Canada'}),
-       (Rosalia:Artist {name:'Rosalía', dateOfBirth: date('1992-09-25'), originCountry:'Spain'});
+       (Rosalia:Artist {name:'Rosalia', dateOfBirth: date('1992-09-25'), originCountry:'Spain'});
 
 CREATE (Kuba:User {name:'Kuba Flizikowski', dateOfBirth: date('2004-12-29'), joinDate: date('2019-02-12'), countryOrigin: 'Poland', subscriptionType: 'Premium'}),
        (Alice:User {name:'Alice Johnson', dateOfBirth: date('1995-03-14'), joinDate: date('2020-06-01'), countryOrigin: 'United Kingdom', subscriptionType: 'Free'}),
@@ -50,7 +50,7 @@ CREATE (s10:Song {name:'Blinding Lights', releaseDate: date('2019-11-29'), genre
        (s11:Song {name:'Save Your Tears', releaseDate: date('2020-08-09'), genreType:'Pop', duration: 215, mood:['melancholic','catchy']}),
        (s12:Song {name:'Party Monster', releaseDate: date('2016-1-25'), genreType:'Electropop', duration: 230, mood:['dark','confident']});
 
-// Rosalía
+// Rosalia
 CREATE (s13:Song {name:'Malamente', releaseDate: date('2018-05-30'), genreType:'Flamenco Pop', duration: 161, mood:['bold','rhythmic']}),
        (s14:Song {name:'Con Altura', releaseDate: date('2019-03-28'), genreType:'Reggaeton', duration: 162, mood:['playful','danceable']}),
        (s15:Song {name:'Saoko', releaseDate: date('2022-03-18'), genreType:'Latin Pop', duration: 160, mood:['fun','confident']});
@@ -71,23 +71,10 @@ CREATE (album6:Album {name:'Scorpion'}),
 CREATE (album9:Album {name:'After Hours'}),
        (album10:Album {name:'Starboy'});
 
-// Rosalía albums
+// Rosalia albums
 CREATE (album12:Album {name:'El Mal Querer'}),
        (album13:Album {name:'Motomami'});
 
-//match group for artists and albums
-MATCH (artist:Artist), (album:Album)
-WHERE (artist.name = 'Dawid Podsiadlo' AND album.name = 'Małomiasteczkowy')
-   OR (artist.name = 'Dawid Podsiadlo' AND album.name = 'Comfort and Happiness')
-   OR (artist.name = 'Adele' AND album.name = '25')
-   OR (artist.name = 'Adele' AND album.name = '21')
-   OR (artist.name = 'Drake' AND album.name = 'Scorpion')
-   OR (artist.name = 'Drake' AND album.name = 'Views')
-   OR (artist.name = 'The Weeknd' AND album.name = 'After Hours')
-   OR (artist.name = 'The Weeknd' AND album.name = 'Starboy')
-   OR (artist.name = 'Rosalía' AND album.name = 'El Mal Querer')
-   OR (artist.name = 'Rosalía' AND album.name = 'Motomami')
-RETURN artist, album;
 
 //relationships for artists->albums
 MATCH (artist:Artist), (album:Album)
@@ -95,8 +82,12 @@ WHERE (artist.name = 'Dawid Podsiadlo' AND album.name IN ['Małomiasteczkowy','C
    OR (artist.name = 'Adele' AND album.name IN ['25','21'])
    OR (artist.name = 'Drake' AND album.name IN ['Scorpion','Views'])
    OR (artist.name = 'The Weeknd' AND album.name IN ['After Hours','Starboy'])
-   OR (artist.name = 'Rosalía' AND album.name IN ['El Mal Querer','Motomami'])
-CREATE (artist)-[:RELEASED {releaseDate: coalesce(album.releaseDate, date())}]->(album);
+   OR (artist.name = 'Rosalia' AND album.name IN ['El Mal Querer','Motomami'])
+WITH artist, album,
+     2010 + toInteger(rand() * 16) AS year,
+     toInteger(rand() * 365) AS dayOffset
+WITH artist, album, date({year: year}) + duration({days: dayOffset}) AS randomDate
+CREATE (artist)-[:RELEASED {releaseDate: randomDate}]->(album);
 
 
 //relationships for songs->albums
@@ -153,11 +144,3 @@ WITH users[toInteger(rand() * size(users))] AS follower,
 WHERE follower <> followed
 MERGE (follower)-[:IS_FOLLOWING {since: date() - duration({days: toInteger(rand() * 1000)})}]->(followed)
 RETURN follower.name AS follower, followed.name AS followed;
-
-
-
-
-
-
-
-
