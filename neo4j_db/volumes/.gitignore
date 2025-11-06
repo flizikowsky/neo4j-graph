@@ -1,5 +1,5 @@
 # Ignore everything in this folder
-*
+../../volumes/neo4j
 
 # except the .gitignore file
 !.gitignore

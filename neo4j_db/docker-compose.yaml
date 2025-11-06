@@ -1,0 +1,36 @@
+services:
+  neo4j:
+    build:
+      context: ..
+      dockerfile: ../Neo4j.Dockerfile
+    image: my-neo4j:local
+    container_name: neo4j_db-local
+    ports:
+      - "7474:7474"  # HTTP
+      - "7687:7687"  # Bolt
+    environment:
+      - NEO4J_AUTH=neo4j_db/StrongRoot123#  # Remember to create .env file!
+
+    volumes:
+      - neo4j_db-data:/data
+      - neo4j_db-logs:/logs
+      - ./neo4j_db/volumes/neo4j/import:/var/lib/neo4j/import
+      - ./neo4j_db/volumes/neo4j/plugins:/plugins
+#      - volumes/neo4j_db//conf:/var/lib/neo4j_db/conf
+
+    restart: unless-stopped
+
+volumes:
+  neo4j-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./neo4j_db/volumes/neo4j/data
+      o: bind
+
+  neo4j-logs:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./neo4j_db/volumes/neo4j/logs
+      o: bind
