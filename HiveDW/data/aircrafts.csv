@@ -1,0 +1,101 @@
+Aircraft_Key,Manufacturer,Capacity,Model,Extra_info
+1000,Airbus,180,A320,type:Narrow-body aircraft|note:Commonly used for short-haul European routes
+1001,Boeing,314,787-9,type:Long-haul capable|note:Features advanced composite fuselage
+1002,Embraer,88,E175,type:Popular for regional routes|note:Favored by North American carriers
+1003,Bombardier,72,CRJ700,type:Modern avionics suite|note:Known for excellent climb performance
+1004,ATR,48,ATR 42-600,type:Popular for regional routes|note:Optimized for short, unpaved runways
+1005,Airbus,440,A350-1000,type:Wide-body aircraft|note:Equipped with next-gen Rolls-Royce engines
+1006,Boeing,189,737-800,type:Fuel-efficient variant|note:Most widely operated 737 variant globally
+1007,Embraer,118,E195,type:Narrow-body aircraft|note:Often used on high-demand regional services
+1008,Airbus,250,A330-300,type:Twin-engine jet|note:Renowned for high reliability across fleets
+1009,Boeing,396,777-300ER,type:Long-haul capable|note:Well-known for impressive cargo capacity
+1010,Airbus,140,A319,type:Narrow-body aircraft|note:Preferred for operations into smaller airports
+1011,Bombardier,104,CRJ1000,type:Modern avionics suite|note:Designed for dense regional markets
+1012,ATR,72,ATR 72-600,type:Popular for regional routes|note:Features highly efficient turboprops
+1013,Boeing,467,747-8,type:Wide-body aircraft|note:Latest variant of the iconic “Queen of the Skies”
+1014,Airbus,525,A380-800,type:High-density configuration available|note:World’s largest passenger airliner
+1015,Embraer,110,E195-E2,type:Fuel-efficient variant|note:Offers much quieter cabin interior
+1016,Boeing,290,787-10,type:Twin-engine jet|note:Designed for high-capacity long-range missions
+1017,Airbus,320,A321,type:Modern avionics suite|note:Popular for transcontinental U.S. flights
+1018,Bombardier,50,CRJ200,type:Narrow-body aircraft|note:Often used for low-demand feeder routes
+1019,Embraer,76,E170,type:Popular for regional routes|note:Praised for comfortable 2+2 seating
+1020,Airbus,335,A350-900,type:Long-haul capable|note:Features advanced aerodynamic winglets
+1021,Boeing,230,767-300,type:Wide-body aircraft|note:Commonly used for cargo conversions
+1022,ATR,70,ATR 72-600,type:Popular for regional routes|note:Reliable in tropical operational environments
+1023,Boeing,160,737-700,type:Fuel-efficient variant|note:Great maneuverability for shorter runways
+1024,Airbus,270,A330-200,type:Wide-body aircraft|note:Ideal balance of range and payload
+1025,Embraer,124,E195-E2,type:Modern avionics suite|note:Industry-leading fuel economy in its class
+1026,Airbus,133,A220-300,type:Fuel-efficient variant|note:Extremely low noise footprint on takeoff
+1027,Boeing,315,777-200,type:Long-haul capable|note:Widely used for oceanic transpacific routes
+1028,Bombardier,90,CRJ900,type:Narrow-body aircraft|note:Strong performer on high-altitude airports
+1029,Airbus,120,A220-100,type:Popular for regional routes|note:Superior cabin pressurization improves comfort
+1030,Boeing,242,787-8,type:Twin-engine jet|note:Highly efficient for long thin routes
+1031,Embraer,98,E190,type:Popular for regional routes|note:Used heavily in South American markets
+1032,ATR,50,ATR 42-600,type:Narrow-body aircraft|note:Excellent short-field performance
+1033,Boeing,295,757-200,type:High-density configuration available|note:Favored for hot-and-high operations
+1034,Airbus,200,A320,type:Fuel-efficient variant|note:Backbone of many low-cost carrier fleets
+1035,Bombardier,78,CRJ700,type:Modern avionics suite|note:Offers reduced fuel burn on regional legs
+1036,Airbus,185,A321,type:Narrow-body aircraft|note:Commonly deployed on leisure-heavy routes
+1037,Boeing,410,747-400,type:Wide-body aircraft|note:Iconic upper-deck hump design
+1038,Embraer,104,E190-E2,type:Fuel-efficient variant|note:Features Pratt & Whitney geared turbofans
+1039,Airbus,300,A330-300,type:Long-haul capable|note:Often used for intercontinental long-haul routes
+1040,Boeing,270,787-9,type:Modern avionics suite|note:Known for exceptional passenger comfort
+1041,ATR,68,ATR 72-600,type:Popular for regional routes|note:Highly favored in island nations
+1042,Embraer,80,E170,type:Narrow-body aircraft|note:Exceptional reliability record
+1043,Boeing,215,737-900,type:Fuel-efficient variant|note:High-density configuration available
+1044,Airbus,156,A319,type:Modern avionics suite|note:Popular in European business travel markets
+1045,Bombardier,90,CRJ900,type:Popular for regional routes|note:Smooth ride thanks to tuned wing design
+1046,Airbus,440,A350-1000,type:Wide-body aircraft|note:Ultra-long-range variant available
+1047,Boeing,330,777-300ER,type:Long-haul capable|note:One of the most successful long-haul airliners
+1048,Embraer,122,E195,type:Narrow-body aircraft|note:A popular choice in fast-growing regional airlines
+1049,ATR,45,ATR 42-600,type:Narrow-body aircraft|note:Excellent in mountainous terrain operations
+1050,Airbus,180,A320,type:Narrow-body aircraft|note:Extensively used across Asia-Pacific networks
+1051,Boeing,314,787-9,type:Long-haul capable|note:Advanced cabin humidity controls for comfort
+1052,Embraer,88,E175,type:Popular for regional routes|note:A favorite among regional pilots
+1053,Bombardier,72,CRJ700,type:Modern avionics suite|note:Noted for smooth and quiet climb
+1054,ATR,48,ATR 42-600,type:Popular for regional routes|note:Highly adaptable to remote airport conditions
+1055,Airbus,440,A350-1000,type:Wide-body aircraft|note:Cabin offers advanced LED mood lighting
+1056,Boeing,189,737-800,type:Fuel-efficient variant|note:The workhorse of many charter airlines
+1057,Embraer,118,E195,type:Narrow-body aircraft|note:Optimized for short-to-medium range sectors
+1058,Airbus,250,A330-300,type:Twin-engine jet|note:Common replacement for aging A340 fleets
+1059,Boeing,396,777-300ER,type:Long-haul capable|note:High fuel capacity for long sectors
+1060,Airbus,140,A319,type:Narrow-body aircraft|note:Used frequently on corporate shuttle routes
+1061,Bombardier,104,CRJ1000,type:Modern avionics suite|note:Largest aircraft in the CRJ family
+1062,ATR,72,ATR 72-600,type:Popular for regional routes|note:High fuel efficiency for turboprop operations
+1063,Boeing,467,747-8,type:Wide-body aircraft|note:Features updated GEnx engines
+1064,Airbus,525,A380-800,type:High-density configuration available|note:Known for exceptionally quiet cabin
+1065,Embraer,110,E195-E2,type:Fuel-efficient variant|note:Offers advanced fly-by-wire controls
+1066,Boeing,290,787-10,type:Twin-engine jet|note:Longest variant in the 787 family
+1067,Airbus,320,A321,type:Modern avionics suite|note:Large overhead bins for increased carry-on capacity
+1068,Bombardier,50,CRJ200,type:Narrow-body aircraft|note:Used widely for essential air services
+1069,Embraer,76,E170,type:Popular for regional routes|note:Praised for gentle landing characteristics
+1070,Airbus,335,A350-900,type:Long-haul capable|note:Superior cabin altitude reduces fatigue
+1071,Boeing,230,767-300,type:Wide-body aircraft|note:Commonly used for transatlantic flights
+1072,ATR,70,ATR 72-600,type:Popular for regional routes|note:Favored for low operating costs
+1073,Boeing,160,737-700,type:Fuel-efficient variant|note:Used in both passenger and BBJ formats
+1074,Airbus,270,A330-200,type:Wide-body aircraft|note:Preferred for medium-density long-haul markets
+1075,Embraer,124,E195-E2,type:Modern avionics suite|note:Highly praised in airline reviews
+1076,Airbus,133,A220-300,type:Fuel-efficient variant|note:Designed with extra-wide economy seats
+1077,Boeing,315,777-200,type:Long-haul capable|note:Versatile across both passenger and cargo roles
+1078,Bombardier,90,CRJ900,type:Narrow-body aircraft|note:Strong performance in winter conditions
+1079,Airbus,120,A220-100,type:Popular for regional routes|note:Designed for exceptional runway efficiency
+1080,Boeing,242,787-8,type:Twin-engine jet|note:Popular with startup long-haul airlines
+1081,Embraer,98,E190,type:Popular for regional routes|note:Balanced capacity for emerging markets
+1082,ATR,50,ATR 42-600,type:Narrow-body aircraft|note:Used for inter-island operations worldwide
+1083,Boeing,295,757-200,type:High-density configuration available|note:Known for rocket-like takeoff power
+1084,Airbus,200,A320,type:Fuel-efficient variant|note:Backbone of global single-aisle fleets
+1085,Bombardier,78,CRJ700,type:Modern avionics suite|note:Quiet, economical, and dependable
+1086,Airbus,185,A321,type:Narrow-body aircraft|note:Preferred on high-demand leisure routes
+1087,Boeing,410,747-400,type:Wide-body aircraft|note:A historic aircraft with unmatched legacy
+1088,Embraer,104,E190-E2,type:Fuel-efficient variant|note:Uses cutting-edge composite materials
+1089,Airbus,300,A330-300,type:Long-haul capable|note:Widely adopted as a cost-effective long-hauler
+1090,Boeing,270,787-9,type:Modern avionics suite|note:Exceptional range for mid-size wide-body
+1091,ATR,68,ATR 72-600,type:Popular for regional routes|note:Durable in hot and humid climates
+1092,Embraer,80,E170,type:Narrow-body aircraft|note:Compact and efficient for commuter routes
+1093,Boeing,215,737-900,type:Fuel-efficient variant|note:Often used by large U.S. carriers
+1094,Airbus,156,A319,type:Modern avionics suite|note:Popular in European business travel markets
+1095,Bombardier,90,CRJ900,type:Popular for regional routes|note:Smooth ride thanks to optimized wing
+1096,Airbus,440,A350-1000,type:Wide-body aircraft|note:One of the most advanced airliners in service
+1097,Boeing,330,777-300ER,type:Long-haul capable|note:Favored for high-capacity Asia routes
+1098,Embraer,122,E195,type:Narrow-body aircraft|note:A popular choice in fast-growing markets
+1099,ATR,45,ATR 42-600,type:Narrow-body aircraft|note:Provides excellent economics for regional flying

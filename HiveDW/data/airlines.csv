@@ -1,0 +1,50 @@
+Airline_Key,Name,Country,Alliance
+AA,American Airlines,United States,Oneworld
+UA,United Airlines,United States,Star Alliance
+DL,Delta Air Lines,United States,SkyTeam
+BA,British Airways,United Kingdom,Oneworld
+AF,Air France,France,SkyTeam
+LH,Lufthansa,Germany,Star Alliance
+KL,KLM Royal Dutch Airlines,Netherlands,SkyTeam
+QF,Qantas,Australia,Oneworld
+QR,Qatar Airways,Qatar,Oneworld
+EK,Emirates,United Arab Emirates,Oneworld
+EY,Etihad Airways,United Arab Emirates,Star Alliance
+NH,All Nippon Airways,Japan,Star Alliance
+JL,Japan Airlines,Japan,Oneworld
+CA,Air China,China,Star Alliance
+CZ,China Southern Airlines,China,SkyTeam
+MU,China Eastern Airlines,China,SkyTeam
+AC,Air Canada,Canada,Star Alliance
+AZ,ITA Airways,Italy,SkyTeam
+SK,Scandinavian Airlines (SAS),Sweden,Star Alliance
+IB,Iberia,Spain,Oneworld
+VS,Virgin Atlantic,United Kingdom,SkyTeam
+LY,El Al Israel Airlines,Israel,Oneworld
+TK,Turkish Airlines,Turkey,Star Alliance
+SU,Aeroflot,Russia,SkyTeam
+LA,LATAM Airlines,Chile,Oneworld
+AM,Aeroméxico,Mexico,SkyTeam
+G3,Gol Transportes Aéreos,Brazil,Oneworld
+KE,Korean Air,South Korea,SkyTeam
+OZ,Asiana Airlines,South Korea,Star Alliance
+SA,South African Airways,South Africa,Star Alliance
+ET,Ethiopian Airlines,Ethiopia,Star Alliance
+MS,EgyptAir,Egypt,Star Alliance
+PK,Pakistan International Airlines,Pakistan,Oneworld
+NZ,Air New Zealand,New Zealand,Star Alliance
+FJ,Fiji Airways,Fiji,Oneworld
+WY,Oman Air,Oman,Oneworld
+SV,Saudia,Saudi Arabia,SkyTeam
+VN,Vietnam Airlines,Vietnam,SkyTeam
+TG,Thai Airways,Thailand,Star Alliance
+MH,Malaysia Airlines,Malaysia,Oneworld
+UL,SriLankan Airlines,Sri Lanka,Oneworld
+JJ,LATAM Brasil,Brazil,Oneworld
+WS,WestJet,Canada,Star Alliance
+BT,Air Baltic,Latvia,Oneworld
+HG,Hainan Airlines,China,SkyTeam
+UX,Air Europa,Spain,SkyTeam
+VY,Vueling,Spain,Oneworld
+FR,Ryanair,Ireland,Oneworld
+U2,easyJet,United Kingdom,Oneworld
