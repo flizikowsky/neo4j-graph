@@ -3,7 +3,7 @@ Aircraft_Key,Manufacturer,Capacity,Model,Extra_info
 1001,Boeing,314,787-9,type:Long-haul capable|note:Features advanced composite fuselage
 1002,Embraer,88,E175,type:Popular for regional routes|note:Favored by North American carriers
 1003,Bombardier,72,CRJ700,type:Modern avionics suite|note:Known for excellent climb performance
-1004,ATR,48,ATR 42-600,type:Popular for regional routes|note:Optimized for short, unpaved runways
+1004,ATR,48,ATR 42-600,type:Popular for regional routes|note:Optimized for short unpaved runways
 1005,Airbus,440,A350-1000,type:Wide-body aircraft|note:Equipped with next-gen Rolls-Royce engines
 1006,Boeing,189,737-800,type:Fuel-efficient variant|note:Most widely operated 737 variant globally
 1007,Embraer,118,E195,type:Narrow-body aircraft|note:Often used on high-demand regional services
@@ -84,7 +84,7 @@ Aircraft_Key,Manufacturer,Capacity,Model,Extra_info
 1082,ATR,50,ATR 42-600,type:Narrow-body aircraft|note:Used for inter-island operations worldwide
 1083,Boeing,295,757-200,type:High-density configuration available|note:Known for rocket-like takeoff power
 1084,Airbus,200,A320,type:Fuel-efficient variant|note:Backbone of global single-aisle fleets
-1085,Bombardier,78,CRJ700,type:Modern avionics suite|note:Quiet, economical, and dependable
+1085,Bombardier,78,CRJ700,type:Modern avionics suite|note:Quiet economical and dependable
 1086,Airbus,185,A321,type:Narrow-body aircraft|note:Preferred on high-demand leisure routes
 1087,Boeing,410,747-400,type:Wide-body aircraft|note:A historic aircraft with unmatched legacy
 1088,Embraer,104,E190-E2,type:Fuel-efficient variant|note:Uses cutting-edge composite materials

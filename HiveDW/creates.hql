@@ -159,11 +159,61 @@ CREATE TABLE Fact_Flight (
     Departure_time TIMESTAMP,
     Distance_km DECIMAL(10,2),
     Delay_minutes INT,
-    Passenger STRING
+    Passenger INT
 )
 COMMENT 'Główna tabela faktów lotów, zarządzana przez Hive.'
-PARTITIONED BY (departure_year INT, departure_month INT) -- <-- Partycjonowanie
-CLUSTERED BY (Origin_Airport_Key)                       -- <-- Bucketing
-    SORTED BY (Departure_Date_Key) INTO 32 BUCKETS
+PARTITIONED BY (departure_year INT, departure_quarter INT)
+CLUSTERED BY (Origin_Airport_Key)
+    SORTED BY (Departure_Date_Key) INTO 4 BUCKETS
 STORED AS ORC
 TBLPROPERTIES ('orc.compress'='SNAPPY');
+
+CREATE EXTERNAL TABLE staging_flight (
+    Departure_Date_Key STRING,
+    Arrival_Date_Key STRING,
+    Departure_Time_Key STRING,
+    Arrival_Time_Key STRING,
+    Origin_Airport_Key STRING,
+    Destination_Airport_Key STRING,
+    Airline_Key STRING,
+    Aircraft_Key STRING,
+    Departure_time STRING,
+    Distance_km STRING,
+    Delay_minutes STRING,
+    Passenger STRING
+)
+ROW FORMAT DELIMITED
+    FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/user/source/flight'
+TBLPROPERTIES ("skip.header.line.count"="1");
+
+SELECT * FROM staging_flight LIMIT 100;
+
+SET hive.exec.dynamic.partition=true;
+SET hive.exec.dynamic.partition.mode=nonstrict;
+SET hive.enforce.bucketing=true;
+SET hive.optimize.sort.dynamic.partition=true;
+
+SET hive.vectorized.execution.enabled=false;
+SET hive.vectorized.execution.reduce.enabled=false;
+
+INSERT OVERWRITE TABLE Fact_Flight PARTITION (departure_year, departure_quarter)
+SELECT
+    CAST(Departure_Date_Key AS DATE),
+    CAST(Arrival_Date_Key AS DATE),
+    Departure_Time_Key,
+    Arrival_Time_Key,
+    Origin_Airport_Key,
+    Destination_Airport_Key,
+    Airline_Key,
+    CAST(Aircraft_Key AS INT),
+    CAST(Departure_time AS TIMESTAMP),
+    CAST(Distance_km AS DECIMAL(10,2)),
+    CAST(Delay_minutes AS INT),
+    CAST(Passenger AS INT),
+    YEAR(CAST(Departure_Date_Key AS DATE)) AS departure_year,
+    QUARTER(CAST(Departure_Date_Key AS DATE)) AS departure_quarter
+FROM staging_flight;
+
+SELECT * FROM Fact_Flight LIMIT 10;
