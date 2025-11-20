@@ -6,6 +6,9 @@ DROP TABLE IF EXISTS staging_date;
 DROP TABLE IF EXISTS Dim_Airport;
 DROP TABLE IF EXISTS Dim_Aircraft;
 DROP TABLE IF EXISTS staging_aircraft;
+DROP TABLE IF EXISTS Fact_Flight;
+DROP TABLE IF EXISTS staging_flight;
+DROP TABLE IF EXISTS staging_airlines;
 
 
 ------------------------------------------------------------------------------------------------------------------------
@@ -72,18 +75,61 @@ SELECT * FROM staging_time LIMIT 10;
 
 
 ------------------------------------------------------------------------------------------------------------------------
---External table in Parquet format with a parquet file directly loaded from HDFS
-CREATE EXTERNAL TABLE Dim_Airline (
+--Internal table in Parquet format with a staging table in delimited text format loaded from HDFS using statics partitioning
+CREATE EXTERNAL TABLE staging_airlines (
     Airline_Key STRING,
-    Name STRING NOT NULL,
-    Country STRING NOT NULL,
+    Name STRING,
+    Country STRING,
     Alliance STRING
 )
-COMMENT 'Zewnętrzny wymiar linii lotniczych, dane w formacie Parquet.'
-STORED AS PARQUET
-LOCATION '/user/source/airlines';
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/user/source/airlines'
+TBLPROPERTIES ("skip.header.line.count"="1");
 
-SELECT * FROM Dim_Airline LIMIT 10;
+SELECT * FROM staging_airlines LIMIT 10;
+
+
+CREATE TABLE Dim_Airline (
+    Airline_Key STRING,
+    Name STRING,
+    Country STRING
+    --alliance column removed from here because it is a key for static partitioning
+)
+COMMENT 'Airline Dimension Static Partitioning'
+PARTITIONED BY (Alliance STRING)
+STORED AS PARQUET;
+
+
+SET hive.exec.dynamic.partition=false;
+
+
+INSERT OVERWRITE TABLE Dim_Airline PARTITION (Alliance='Star Alliance')
+SELECT
+    Airline_Key,
+    Name,
+    Country
+FROM staging_airlines
+WHERE Alliance = 'Star Alliance';
+
+INSERT OVERWRITE TABLE Dim_Airline PARTITION (Alliance='SkyTeam')
+SELECT
+    Airline_Key,
+    Name,
+    Country
+FROM staging_airlines
+WHERE Alliance = 'SkyTeam';
+
+INSERT OVERWRITE TABLE Dim_Airline PARTITION (Alliance='Oneworld')
+SELECT
+    Airline_Key,
+    Name,
+    Country
+FROM staging_airlines
+WHERE Alliance = 'Oneworld';
+
+SELECT * FROM Dim_Airline;
 
 
 ------------------------------------------------------------------------------------------------------------------------
@@ -138,8 +184,6 @@ TBLPROPERTIES ("skip.header.line.count"="1");
 
 SELECT * FROM Dim_Aircraft;
 SELECT * FROM staging_aircraft;
-
-describe staging_aircraft;
 
 INSERT OVERWRITE TABLE Dim_Aircraft
 SELECT *
