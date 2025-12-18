@@ -1,0 +1,86 @@
+//people task1
+db.people.find(
+  {
+    $or: [
+      { contact_no: 3 },
+      { $expr: { $eq: [ { $size: "$contacts" }, 3 ] } }
+    ]
+  },
+  { _id: 0, name: 1, surname: 1 }
+)
+
+//people task2
+db.people.updateOne(
+  { name: "Mia", surname: "Schwarz" },
+  { $set: { email: "mia@email.org" } }
+)
+
+//people task3
+db.people.aggregate([
+  {
+    $lookup: {
+      from: "people",
+      let: { myPhone: "$phone" },
+      pipeline: [
+        {
+          $match: {
+            $expr: {
+              $in: [
+                "$$myPhone",
+                {
+                  $map: {
+                    input: "$contacts",
+                    as: "c",
+                    in: "$$c.phone"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      as: "knownBy"
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      name: 1,
+      surname: 1,
+      known_by_count: { $size: "$knownBy" }
+    }
+  }
+])
+
+
+
+//planes task1
+db.planes.updateOne(
+  { number: "ED342", "flights.from": "NY" },
+  { $set: { "flights.$.from": "New York" } }
+)
+
+//planes task2
+db.planes.find(
+  {
+    $or: [
+      { "flights.from": "New York" },
+      { "flights.to": "New York" }
+    ]
+  },
+  { _id: 0, model: 1, number: 1 }
+)
+
+//planes task3
+db.planes.aggregate([
+  {
+    $project: {
+      _id: 0,
+      model: 1,
+      number: 1,
+      totalDistance: {
+        $sum: "$flights.distance"
+      }
+    }
+  }
+])

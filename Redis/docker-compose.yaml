@@ -1,0 +1,29 @@
+
+services:
+  redis:
+    image: redis:7.2
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: ["redis-server", "--appendonly", "yes"]
+    networks:
+      - redis_net
+
+  redis-ui:
+    image: redis/redisinsight:latest
+    container_name: redis-ui
+    ports:
+      - "5540:5540"
+    depends_on:
+      - redis
+    networks:
+      - redis_net
+
+volumes:
+  redis_data:
+
+networks:
+  redis_net:
+    driver: bridge
